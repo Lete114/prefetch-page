@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prefetch-Page</title>
+    <style>
+      a {
+        margin-bottom: 100vh;
+        display: block;
+      }
+    </style>
+    <script src="./dist/prefetch.js" origins="*" threshold="25" delay="3000"></script>
+    <script>addEventListener('load',prefetch)</script>
+  </head>
+
+  <body>
+    <a href="javascript:void(0);">javascript:void(0);</a>
+    <a href="test1.html">test page 1</a>
+    <a href="test2.html">test page 2</a>
+    <a href="test3.html">test page 3</a>
+  </body>
+</html>

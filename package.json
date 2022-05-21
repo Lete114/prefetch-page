@@ -1,0 +1,42 @@
+{
+  "name": "prefetch-page",
+  "version": "1.0.0-beta.5",
+  "description": "浏览器在空闲时预加载可见区域的超链接，以加速后续页面的加载速度 | Browser prefetchs visible area hyperlinks at idle time to speed up subsequent page loads",
+  "main": "dist/prefetch.cjs.js",
+  "module": "dist/prefetch.esm.js",
+  "unpkg": "dist/prefetch.js",
+  "jsdelivr": "dist/prefetch.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "lint": "npx eslint src && npx prettier --check src",
+    "lint:fix": "npx eslint --fix src && npx prettier --check --write src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lete114/prefetch-page.git"
+  },
+  "keywords": [
+    "precache",
+    "prefetch",
+    "prefetcher",
+    "IntersectionObserver"
+  ],
+  "author": "Lete乐特",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lete114/prefetch-page/issues"
+  },
+  "homepage": "https://github.com/Lete114/prefetch-page#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.12",
+    "@babel/preset-env": "^7.17.12",
+    "@rollup/plugin-babel": "^5.3.1",
+    "eslint": "^8.15.0",
+    "prettier": "^2.6.2",
+    "rollup": "^2.73.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
