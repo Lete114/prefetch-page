@@ -16,15 +16,6 @@ const plugins = [
 
 export default [
   {
-    input: 'src/attribute.js',
-    output: {
-      format: 'iife',
-      name: 'prefetch',
-      file: production ? 'dist/prefetch.attr.js' : 'public/dist/prefetch.attr.js'
-    },
-    plugins
-  },
-  {
     input: 'src/index.js',
     output: {
       format: 'iife',
@@ -38,7 +29,7 @@ export default [
     output: {
       format: 'esm',
       name: 'prefetch',
-      file: production ? 'dist/prefetch.esm.js' : 'public/dist/prefetch.esm.js'
+      file: production ? 'dist/prefetchm.js' : 'public/dist/prefetchm.js'
     }
   },
   {
@@ -47,7 +38,7 @@ export default [
       exports: 'auto',
       format: 'cjs',
       name: 'prefetch',
-      file: production ? 'dist/prefetch.cjs.js' : 'public/dist/prefetch.cjs.js'
+      file: production ? 'dist/prefetch.cjs' : 'public/dist/prefetch.cjs'
     }
   }
 ]

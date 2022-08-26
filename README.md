@@ -28,12 +28,6 @@ npm install prefetch-page --save
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 ```
 
-立即执行，内置了`addEventListener('load', function () {})`所以它不会阻塞页面
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/prefetch-page/dist/prefetch.attr.js"></script>
-```
-
 ## 使用方法
 
 在浏览器中使用
@@ -45,21 +39,6 @@ npm install prefetch-page --save
     prefetch({ threshold: 25, delay: 3000, limit: 10 })
   })
 </script>
-```
-
-可以在`<script>`标签上设置选项值
-
-> 注意: origins 和 customs 属性需要以逗号分割 (并且只有`prefetch.attr.js`才可以在标签上设置属性)
-
-```html
-<script
-  src="https://cdn.jsdelivr.net/npm/prefetch-page/dist/prefetch.attr.js"
-  limit="10"
-  delay="3000"
-  threshold="25"
-  origins="example.com,blog.example.com"
-  customs="markdown.js,404.html,https://www.example.com"
-></script>
 ```
 
 ESModule 模块

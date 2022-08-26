@@ -24,43 +24,17 @@ Using CDN:
 
 Need to call `prefetch()` to trigger
 
-```html
+````html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
-```
 
-Execute immediately, built in 'addEventListener('load', function () {})' so it doesn't block the page
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/prefetch-page/dist/prefetch.attr.js"></script>
-```
-
-## Using
-
-Use in your browser
-
-```html
+## Using Use in your browser ```html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
   addEventListener('load', function () {
     prefetch({ threshold: 25, delay: 3000, limit: 10 })
   })
 </script>
-```
-
-Option values can be set on the `<script>` tag
-
-> Note: origins and customs attributes need to be comma-separated (and only `prefetch.attr.js` can set attributes on tags)
-
-```html
-<script
-  src="https://cdn.jsdelivr.net/npm/prefetch-page/dist/prefetch.attr.js"
-  limit="10"
-  delay="3000"
-  threshold="25"
-  origins="example.com,blog.example.com"
-  customs="markdown.js,404.html,https://www.example.com"
-></script>
-```
+````
 
 ESModule Modules
 
