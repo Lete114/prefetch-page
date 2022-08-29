@@ -5,7 +5,7 @@
 </div>
 
 <h1 align="center"><a href="https://github.com/Lete114/Prefetch-Page" target="_blank">Prefetch-Page</a></h1>
-<p align="center">浏览器在空闲时预加载可见区域的超链接，以加速后续页面的加载速度</p>
+<p align="center">浏览器在空闲时预加载可见区域的超链接，以加速后续页面的速度</p>
 
 <p align="center">
     <a href="https://github.com/Lete114/Prefetch-Page/releases/"><img src="https://img.shields.io/npm/v/prefetch-page?logo=npm" alt="Version"></a>
