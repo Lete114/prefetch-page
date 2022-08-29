@@ -11,10 +11,13 @@
         display: block;
       }
     </style>
-    <script src="./dist/prefetch.js" origins="*" threshold="25" delay="3000"></script>
-    <script>addEventListener('load',prefetch)</script>
+    <script src="./dist/prefetch.js"></script>
+    <script>
+      requestIdleCallback(function () {
+        prefetch()
+      })
+    </script>
   </head>
-
   <body>
     <a href="javascript:void(0);">javascript:void(0);</a>
     <a href="test1.html">test page 1</a>

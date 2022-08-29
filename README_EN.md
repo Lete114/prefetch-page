@@ -9,7 +9,9 @@
 
 <p align="center">
     <a href="https://github.com/Lete114/Prefetch-Page/releases/"><img src="https://img.shields.io/npm/v/prefetch-page?logo=npm" alt="Version"></a>
+    <a href="https://github.com/Lete114/visitor-badge"><img src="https://visitor_badge.deta.dev/?pageID=github.lete114.prefetch-page" alt="visitor-badge"></a>
     <a href="https://github.com/Lete114/Prefetch-Page/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Lete114/Prefetch-Page?color=FF5531" alt="MIT License"></a>
+
 </p>
 
 ## Installing
@@ -22,15 +24,19 @@ npm install prefetch-page --save
 
 Using CDN:
 
-Need to call `prefetch()` to trigger
-
 ````html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 
 ## Using Use in your browser ```html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  // Triggered when page dom loading is complete
+  addEventListener('DOMContentLoaded', function () {
+    prefetch({ threshold: 25, delay: 3000, limit: 10 })
+  })
+
+  // Or execute it when the browser is idle
+  requestIdleCallback(function () {
     prefetch({ threshold: 25, delay: 3000, limit: 10 })
   })
 </script>
@@ -41,7 +47,13 @@ ESModule Modules
 ```js
 import prefetch from 'prefetch-page'
 
-addEventListener('load', function () {
+// Triggered when page dom loading is complete
+addEventListener('DOMContentLoaded', function () {
+  prefetch({ threshold: 25, delay: 3000, limit: 10 })
+})
+
+// Or execute it when the browser is idle
+requestIdleCallback(function () {
   prefetch({ threshold: 25, delay: 3000, limit: 10 })
 })
 ```
@@ -51,7 +63,13 @@ CommonJS Modules
 ```js
 const prefetch = require('prefetch-page')
 
-addEventListener('load', function () {
+// Triggered when page dom loading is complete
+addEventListener('DOMContentLoaded', function () {
+  prefetch({ threshold: 25, delay: 3000, limit: 10 })
+})
+
+// Or execute it when the browser is idle
+requestIdleCallback(function () {
   prefetch({ threshold: 25, delay: 3000, limit: 10 })
 })
 ```
@@ -67,7 +85,7 @@ Returns a function executing this function will stop watching all the `<a>` tag 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     const clear = prefetch()
     clear()
   })
@@ -91,7 +109,7 @@ Listens for hyperlinks under a given DOM element
 <a href="test4.html">test page 4</a>
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     // Only the hyperlinks to test1.html test2.html test3.html will be listened to for prefetching
     prefetch({ el: '#box' })
     // or
@@ -114,7 +132,7 @@ Prefetch only the specified origins, Asterisk (\*) allows all origins to be pref
 <a href="https://blog.example.com/test3.html">test page 3</a>
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     // Only the test1.html test3.html hyperlink will be listened to prefetch
     prefetch({ origins: ['example.com', 'blog.example.com'] })
     // allows all origins
@@ -137,7 +155,7 @@ Limit the total number of prefetch
 <a href="test3.html">test page 3</a>
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     // Assuming that test1.html is in the visible area of the browser window and has been prefetch
     // If you scroll the visible area of the browser window to the test2.html display area again, no more hyperlinks are preloaded and the limit is exceeded
     prefetch({ limit: 1 })
@@ -176,7 +194,7 @@ Custom preloaded resources, can be img, mp3, mp4, json any resource
 ```html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     prefetch({ customs: ['markdown.js', '404.html', 'https://www.example.com'] })
   })
 </script>

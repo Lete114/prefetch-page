@@ -9,6 +9,7 @@
 
 <p align="center">
     <a href="https://github.com/Lete114/Prefetch-Page/releases/"><img src="https://img.shields.io/npm/v/prefetch-page?logo=npm" alt="Version"></a>
+    <a href="https://github.com/Lete114/visitor-badge"><img src="https://visitor_badge.deta.dev/?pageID=github.lete114.prefetch-page" alt="visitor-badge"></a>
     <a href="https://github.com/Lete114/Prefetch-Page/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/prefetch-page?color=FF5531" alt="MIT License"></a>
 </p>
 
@@ -22,8 +23,6 @@ npm install prefetch-page --save
 
 使用 CDN:
 
-需要调用`prefetch()`触发
-
 ```html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 ```
@@ -35,7 +34,13 @@ npm install prefetch-page --save
 ```html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  // 页面 dom 加载完成时触发
+  addEventListener('DOMContentLoaded', function () {
+    prefetch({ threshold: 25, delay: 3000, limit: 10 })
+  })
+
+  // 或者在浏览器空闲时执行
+  requestIdleCallback(function () {
     prefetch({ threshold: 25, delay: 3000, limit: 10 })
   })
 </script>
@@ -46,7 +51,13 @@ ESModule 模块
 ```js
 import prefetch from 'prefetch-page'
 
-addEventListener('load', function () {
+// 页面 dom 加载完成时触发
+addEventListener('DOMContentLoaded', function () {
+  prefetch({ threshold: 25, delay: 3000, limit: 10 })
+})
+
+// 或者在浏览器空闲时执行
+requestIdleCallback(function () {
   prefetch({ threshold: 25, delay: 3000, limit: 10 })
 })
 ```
@@ -56,7 +67,13 @@ CommonJS 模块
 ```js
 const prefetch = require('prefetch-page')
 
-addEventListener('load', function () {
+// 页面 dom 加载完成时触发
+addEventListener('DOMContentLoaded', function () {
+  prefetch({ threshold: 25, delay: 3000, limit: 10 })
+})
+
+// 或者在浏览器空闲时执行
+requestIdleCallback(function () {
   prefetch({ threshold: 25, delay: 3000, limit: 10 })
 })
 ```
@@ -72,7 +89,7 @@ addEventListener('load', function () {
 ```html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     const clear = prefetch()
     clear()
   })
@@ -96,7 +113,7 @@ addEventListener('load', function () {
 <a href="test4.html">test page 4</a>
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     // 只会对 test1.html test2.html test3.html 的超链接进行监听预加载
     prefetch({ el: '#box' })
     // or
@@ -119,7 +136,7 @@ addEventListener('load', function () {
 <a href="https://blog.example.com/test3.html">test page 3</a>
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     // 只会对 test1.html test3.html 的超链接进行监听预加载
     prefetch({ origins: ['example.com', 'blog.example.com'] })
     // 允许所有源
@@ -142,7 +159,7 @@ addEventListener('load', function () {
 <a href="test3.html">test page 3</a>
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     // 假设 test1.html 在浏览器窗口可视区域，并且已经预加载
     // 如果再次滚动浏览器窗口可视区域到 test2.html 显示区域时，则不再预加载任何超链接，已超出限制
     prefetch({ limit: 1 })
@@ -181,7 +198,7 @@ addEventListener('load', function () {
 ```html
 <script src="https://cdn.jsdelivr.net/npm/prefetch-page"></script>
 <script>
-  addEventListener('load', function () {
+  addEventListener('DOMContentLoaded', function () {
     prefetch({ customs: ['markdown.js', '404.html', 'https://www.example.com'] })
   })
 </script>
