@@ -1,6 +1,6 @@
 {
   "name": "prefetch-page",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "description": "浏览器在空闲时预加载可见区域的超链接，以加速后续页面的加载速度 | Browser prefetchs visible area hyperlinks at idle time to speed up subsequent page loads",
   "main": "dist/prefetch.cjs.js",
   "module": "dist/prefetch.esm.js",
