@@ -39,6 +39,18 @@ function isSupports() {
   return link.relList && link.relList.supports && link.relList.supports('prefetch') && IntersectionObserver
 }
 
+function getEl(el) {
+  try {
+    if (typeof el === 'string') {
+      const _el = document.querySelector(el)
+      if (_el.nodeType === 1) return _el
+    }
+    if (el.nodeType === 1) return el
+    // eslint-disable-next-line no-empty
+  } catch (error) {}
+  return document
+}
+
 /**
  * https://github.com/Lete114/prefetch-page
  * Example:
@@ -61,7 +73,7 @@ function isSupports() {
 export default (options) => {
   if (!isSupports()) return
   if (!options) options = {}
-  const el = document.querySelector(options.el) || options.el || document
+  const el = getEl(options.el)
   const origins = options.origins || [hostname]
   const limit = options.limit || 1 / 0
   const threshold = (options.threshold || 0) / 100
